@@ -2,8 +2,6 @@ from flask import Flask, render_template
 
 from data import extract_data
 
-from os import environ
-
 from json import dumps
 
 app = Flask(__name__)
