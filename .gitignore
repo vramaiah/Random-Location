@@ -3,3 +3,6 @@ venv/
 .idea/
 .editorconfig
 __pycache__/
+.config/
+.replit
+*.nix
