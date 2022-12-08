@@ -18,7 +18,7 @@ function get_random_city() {
         error : function(xhr,errmsg,err) {
             $("#loading-div").remove(); // remove the loading sign
             var error_box = $("<div data-alert>");
-            error_box.attr("class", "alert-box alert radius").html("Oops! We have encountered an error: "+errmsg).appendTo("#results"); // add the error to the dom
+            error_box.attr("class", "alert-box alert radius").html("<span class='error'>Oops! We have encountered an error: "+ errmsg + " </span>").appendTo("#results"); // add the error to the dom
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
     });
