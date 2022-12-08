@@ -22,8 +22,3 @@ def get_data():
              'state' : state.title(), 
              'country' : country.title()}
     return dumps(value)
-
-
-host = environ.get('IP_ADDRESS', default='127.0.0.1')
-
-app.run(host=host, port=81)
