@@ -1,7 +1,7 @@
-// AJAX for posting
+// AJAX for getting the random city
 function get_random_city() {
     var loading_sign = $("#loading-div");
-    loading_sign.css("display" , null);
+    loading_sign.css({"display" : ""});
     console.log("Preparing to get city") // sanity check
     $.ajax({
         url : "/api/v1/get_random_city", // the endpoint
@@ -18,9 +18,7 @@ function get_random_city() {
         // handle a non-successful response
         error : function(xhr,errmsg,err) {
             loading_sign.css("display" , "none"); // remove the loading sign
-            alert("There was an error");
-            var error_box = $("<div data-alert>");
-            error_box.attr("class", "alert-box alert radius").html("<span class='error'>Oops! We have encountered an error: "+ errmsg + " </span>").appendTo("#results"); // add the error to the dom
+            alert("Oops! We have encountered an error: "+ errmsg);
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
     });
