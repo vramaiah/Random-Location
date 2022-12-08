@@ -6,9 +6,10 @@ function get_random_city() {
         type : "GET", // http method
 
         // handle a successful response
-        success : function(result) {
+        success : function(json) {
+            result = JSON.parse(json)
             $("#loading-div").remove(); // remove the loading sign
-            $("#results").html("<h1 id='name'>" + result + "</h1>")
+            $("#results").html("<h1 id='name'>" + result.city + ", " + result.state + ", " + result.country + "</h1>")
             console.log(result); // log the returned json to the console
             console.log("Success in getting city"); // another sanity check
         },

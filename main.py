@@ -4,6 +4,8 @@ from data import extract_data
 
 from os import environ
 
+from json import dumps
+
 app = Flask(__name__)
 
 
@@ -16,8 +18,10 @@ def index():
 @app.route('/api/v1/get_random_city')
 def get_data():
     (city, state, country) = extract_data()
-    value = f"{city.title()}, {state.title()}, {country.title()}"
-    return value
+    value = {'city' : city.title(), 
+             'state' : state.title(), 
+             'country' : country.title()}
+    return dumps(value)
 
 
 host = environ.get('IP_ADDRESS', default='127.0.0.1')
