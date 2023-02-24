@@ -15,8 +15,4 @@ def index():
 
 @app.route('/api/v1/get_random_city')
 def get_data():
-    (city, state, country) = extract_data()
-    value = {'city' : city.title(), 
-             'state' : state.title(), 
-             'country' : country.title()}
-    return dumps(value)
+    return dumps(extract_data())
